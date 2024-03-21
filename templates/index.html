@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+<form id="submit" method="post" action="/submit">
+    <label for="name">Name:</label><br>
+    <input type="text" id="name" name="name"><br>
+    <label for="type">Type:</label><br>
+    <input type="text" id="type" name="type"><br>
+    <label for="genre">Genre:</label><br>
+    <input type="text" id="genre" name="genre"><br>
+
+    <button type="submit" >Submit</button>
+</form>
+
+<h1>Items</h1>
+<ul>
+    {{range .}}
+        <li>
+            Name: {{.Name}}, Type: {{.Type}}, Genre: {{.Genre}}
+            <form action="/delete/{{.Id}}" method="post">
+                <button type="submit">Delete</button>
+            </form>
+        </li>
+    {{end}}
+</ul>
+
+</body>
+</html>
